@@ -21,7 +21,7 @@ class MovieBackgroundImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(children: [
       Container(
-        margin: const EdgeInsets.only(top: 20, bottom: 60),
+        margin: const EdgeInsets.only(top: 20, bottom: 90),
         height: 300,
         child: Hero(
           tag: 'movieBanner',
@@ -75,36 +75,24 @@ class MovieBackgroundImage extends StatelessWidget {
         ),
       ),
       Positioned(
-        bottom: 8,
+        bottom: 25,
         left: 0,
         right: 0,
         child: Column(
           children: [
             Container(
-              margin: const EdgeInsets.only(bottom: 5),
+              margin: const EdgeInsets.only(bottom: 15),
               padding: const EdgeInsets.only(left: 12, right: 12),
               child: AutoSizeText(
                 movies[index].title,
                 style: const TextStyle(
-                  color: Colors.white,
+                  color: Color.fromARGB(255, 255, 255, 255),
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                 ),
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 textAlign: TextAlign.center,
-              ),
-            ),
-            Container(
-              margin: const EdgeInsets.only(bottom: 10),
-              child: RatingBarIndicator(
-                rating: movies[index].voteAverage / 2,
-                itemBuilder: (context, index) => const Icon(
-                  Icons.star,
-                  color: Colors.amber,
-                ),
-                itemCount: 5,
-                itemSize: 18.0,
               ),
             ),
             Hero(
@@ -150,6 +138,19 @@ class MovieBackgroundImage extends StatelessWidget {
                     ),
                   ],
                 ),
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.only(top: 15),
+              child: RatingBarIndicator(
+                rating: movies[index].voteAverage / 2,
+                unratedColor: descTextColor,
+                itemBuilder: (context, index) => const Icon(
+                  Icons.star,
+                  color: Colors.amber,
+                ),
+                itemCount: 5,
+                itemSize: 18.0,
               ),
             ),
           ],

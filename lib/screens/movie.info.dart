@@ -5,6 +5,7 @@ import 'package:movie_app/constants/colors.dart';
 
 import '../api_config.dart';
 import '../components/cached.movie.banner.dart';
+import '../models/dbhelper.dart';
 
 class MovieInfoScreen extends StatefulWidget {
   const MovieInfoScreen({super.key});
@@ -14,11 +15,28 @@ class MovieInfoScreen extends StatefulWidget {
 }
 
 bool isFav = false;
+DatabaseHelper dbHelper = DatabaseHelper();
 
 class _MovieInfoScreenState extends State<MovieInfoScreen> {
+  void checkFavorite() async {
+    final movie = ModalRoute.of(context)!.settings.arguments as Map;
+    List<Map<String, dynamic>> favorites = await dbHelper.getFavoriteMovies();
+    setState(() {
+      isFav = favorites.any((fav) => fav['id'] == movie['id']);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    checkFavorite();
+
     final movie = ModalRoute.of(context)!.settings.arguments as Map;
+
+    Map<String, dynamic> movieData = {
+      "id": movie['id'],
+      "title": movie['title'],
+      "year": movie['releaseDate'],
+    };
 
     return Material(
       type: MaterialType.transparency,
@@ -34,7 +52,13 @@ class _MovieInfoScreenState extends State<MovieInfoScreen> {
           foregroundColor: Colors.white,
           actions: [
             IconButton(
-              onPressed: () {
+              onPressed: () async {
+                isFav
+                    ? await dbHelper.deleteMovie(movie['id'])
+                    : await dbHelper.saveMovie(movieData);
+                List<Map<String, dynamic>> favorites =
+                    await dbHelper.getFavoriteMovies();
+                print(favorites);
                 setState(() {
                   isFav = !isFav;
                 });

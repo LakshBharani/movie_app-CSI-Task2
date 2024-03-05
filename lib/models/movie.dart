@@ -22,7 +22,6 @@ class Movie {
   });
 
   factory Movie.fromJson(Map<String, dynamic> json) {
-    print(json);
     return Movie(
       id: json['id'],
       adult: json['adult'],

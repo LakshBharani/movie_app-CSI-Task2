@@ -3,7 +3,8 @@ import 'package:movie_app/screens/home.screen.dart';
 
 import 'screens/movie.info.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
