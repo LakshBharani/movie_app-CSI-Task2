@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/screens/home.screen.dart';
+import 'package:movie_app/screens/search.movies.screen.dart';
 
 import 'screens/movie.info.dart';
 
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
         routes: {
           '/': (context) => const HomeScreen(),
           '/movie-info': (context) => const MovieInfoScreen(),
+          'search': (context) => const SearchScreen(),
         });
   }
 }

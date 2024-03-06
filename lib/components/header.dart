@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/constants/colors.dart';
 
 class Header extends StatelessWidget {
   const Header({
@@ -7,14 +6,13 @@ class Header extends StatelessWidget {
     required this.title,
     this.onlyTitleShown = false,
   });
-
   final String title;
   final bool onlyTitleShown;
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: bgColor,
+      backgroundColor: Colors.transparent,
       elevation: 0,
       leading: !onlyTitleShown
           ? const Padding(
@@ -25,7 +23,9 @@ class Header extends StatelessWidget {
       actions: !onlyTitleShown
           ? [
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, 'search');
+                },
                 icon: const Icon(Icons.search, size: 24, color: Colors.white),
               )
             ]

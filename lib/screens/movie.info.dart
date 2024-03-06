@@ -42,6 +42,12 @@ class _MovieInfoScreenState extends State<MovieInfoScreen> {
       type: MaterialType.transparency,
       child: Scaffold(
         appBar: AppBar(
+          leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(Icons.arrow_back),
+          ),
           title: AutoSizeText(
             movie['title'],
             style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),

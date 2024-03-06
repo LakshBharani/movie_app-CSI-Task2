@@ -22,8 +22,6 @@ class DatabaseHelper {
   DatabaseHelper.internal();
 
   Future<Database> initDb() async {
-    // clear the database
-    await deleteDatabase("movie_favorites.db");
     // Get the device's directory for storing the database.
     Directory documentDirectory = await getApplicationDocumentsDirectory();
     String path = join(documentDirectory.path, "movie_favorites.db");
