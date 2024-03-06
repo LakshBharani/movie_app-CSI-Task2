@@ -42,12 +42,12 @@ Welcome to the Movie Catalog App! This app allows users to browse and search for
 5. Run the app on an emulator or a physical device using `flutter run`.
 
 ## Screenshots
-<img src="https://github.com/LakshBharani/movie_app-CSI-Task2/assets/80910691/99436c58-31b0-4a80-8152-c1cde5f6ceee" width="200">
-<img src="https://github.com/LakshBharani/movie_app-CSI-Task2/assets/80910691/c98e02e3-2819-453f-87c2-61cd7bba966e" width="200">
-<img src="https://github.com/LakshBharani/movie_app-CSI-Task2/assets/80910691/a5fe03d0-5db7-4b80-bdbb-565366bea84b" width="200">
-<img src="https://github.com/LakshBharani/movie_app-CSI-Task2/assets/80910691/4be97e6a-7dff-4427-98d9-e40b00adf0b2" width="200">
-<img src="https://github.com/LakshBharani/movie_app-CSI-Task2/assets/80910691/d991aa69-92ea-45e4-a767-b3b4f2ccbd69" width="200">
-<img src="https://github.com/LakshBharani/movie_app-CSI-Task2/assets/80910691/10dcb6a6-1d53-457a-b65b-63a72233be49" width="200">
+<img src="https://github.com/LakshBharani/movie_app-CSI-Task2/assets/80910691/99436c58-31b0-4a80-8152-c1cde5f6ceee" width="150">
+<img src="https://github.com/LakshBharani/movie_app-CSI-Task2/assets/80910691/c98e02e3-2819-453f-87c2-61cd7bba966e" width="150">
+<img src="https://github.com/LakshBharani/movie_app-CSI-Task2/assets/80910691/a5fe03d0-5db7-4b80-bdbb-565366bea84b" width="150">
+<img src="https://github.com/LakshBharani/movie_app-CSI-Task2/assets/80910691/4be97e6a-7dff-4427-98d9-e40b00adf0b2" width="150">
+<img src="https://github.com/LakshBharani/movie_app-CSI-Task2/assets/80910691/d991aa69-92ea-45e4-a767-b3b4f2ccbd69" width="150">
+<img src="https://github.com/LakshBharani/movie_app-CSI-Task2/assets/80910691/10dcb6a6-1d53-457a-b65b-63a72233be49" width="150">
 
 ## Video Demo
 
