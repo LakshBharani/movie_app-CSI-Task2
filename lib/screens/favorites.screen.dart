@@ -8,7 +8,7 @@ import '../constants/navigate.moreInfo.dart';
 import '../models/dbhelper.dart';
 
 class FavoritesScreen extends StatelessWidget {
-  const FavoritesScreen({super.key, required this.movies});
+  const FavoritesScreen({Key? key, required this.movies}) : super(key: key);
   final movies;
 
   @override
@@ -34,26 +34,33 @@ class FavoritesScreen extends StatelessWidget {
           body: SafeArea(
             child: Column(
               children: [
+                // Header
                 const Header(
                   title: "Favorites",
                   onlyTitleShown: true,
                 ),
                 Expanded(
                   child: FutureBuilder<List<Map<String, dynamic>>>(
+                    // Fetching favorite movies from the database
                     future: DatabaseHelper().getFavoriteMovies(),
                     builder: (context, snapshot) {
                       if (snapshot.connectionState == ConnectionState.waiting) {
+                        // Display loading indicator while waiting for data
                         return const Center(child: CircularProgressIndicator());
                       } else if (snapshot.hasError) {
+                        // Display error message if an error occurs during data fetching
                         return const Center(child: Text('Error loading data'));
                       } else {
+                        // Extracting favorite movies from the snapshot data
                         final favoriteMovies = snapshot.data ?? [];
+                        // Filtering movies based on whether they are favorites or not
                         final filteredMovies = movies.where((movie) {
                           return favoriteMovies
                               .any((favMovie) => favMovie['id'] == movie.id);
                         }).toList();
 
                         if (filteredMovies.isEmpty) {
+                          // Display a message if there are no favorite movies
                           return const Center(
                             child: Text(
                               'No favorite movies yet!',
@@ -65,6 +72,7 @@ class FavoritesScreen extends StatelessWidget {
                           );
                         }
 
+                        // Display favorite movies in a grid view
                         return GridView.builder(
                           gridDelegate:
                               const SliverGridDelegateWithFixedCrossAxisCount(
@@ -76,6 +84,7 @@ class FavoritesScreen extends StatelessWidget {
                             final movie = filteredMovies[index];
                             return GestureDetector(
                               onTap: () {
+                                // Navigate to more info screen when a movie is tapped
                                 navigateToMoreInfo(
                                     context, movie, movies, index);
                               },
@@ -90,6 +99,7 @@ class FavoritesScreen extends StatelessWidget {
                                           imageUrl:
                                               '${ApiConfig.imageBaseUrl}${movie.posterPath}',
                                           placeholder: (context, url) {
+                                            // Display a loading indicator while the image is loading
                                             return const Center(
                                               child: CircularProgressIndicator(
                                                 color: Colors.white,

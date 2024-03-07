@@ -12,7 +12,8 @@ import '../models/movie.dart';
 import '../movie_service.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  const HomeScreen({Key? key})
+      : super(key: key); // Corrected super constructor invocation
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -25,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    fetchMovies();
+    fetchMovies(); // Fetch movies when the screen initializes
   }
 
   Future<void> fetchMovies() async {

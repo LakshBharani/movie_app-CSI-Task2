@@ -14,10 +14,11 @@ class MovieInfoScreen extends StatefulWidget {
   State<MovieInfoScreen> createState() => _MovieInfoScreenState();
 }
 
-bool isFav = false;
-DatabaseHelper dbHelper = DatabaseHelper();
+bool isFav = false; // Flag to track if movie is in favorites
+DatabaseHelper dbHelper = DatabaseHelper(); // Instance of DatabaseHelper
 
 class _MovieInfoScreenState extends State<MovieInfoScreen> {
+  // Function to check if the movie is a favorite
   void checkFavorite() async {
     final movie = ModalRoute.of(context)!.settings.arguments as Map;
     List<Map<String, dynamic>> favorites = await dbHelper.getFavoriteMovies();
@@ -28,7 +29,7 @@ class _MovieInfoScreenState extends State<MovieInfoScreen> {
 
   @override
   Widget build(BuildContext context) {
-    checkFavorite();
+    checkFavorite(); // Check if the current movie is a favorite
 
     final movie = ModalRoute.of(context)!.settings.arguments as Map;
 
@@ -42,6 +43,7 @@ class _MovieInfoScreenState extends State<MovieInfoScreen> {
       type: MaterialType.transparency,
       child: Scaffold(
         appBar: AppBar(
+          // App bar with title and back button
           leading: IconButton(
             onPressed: () {
               Navigator.pop(context);
@@ -57,8 +59,10 @@ class _MovieInfoScreenState extends State<MovieInfoScreen> {
           elevation: 0,
           foregroundColor: Colors.white,
           actions: [
+            // Action button for adding/removing from favorites
             IconButton(
               onPressed: () async {
+                // Toggle favorite status and update database accordingly
                 isFav
                     ? await dbHelper.deleteMovie(movie['id'])
                     : await dbHelper.saveMovie(movieData);
@@ -70,9 +74,9 @@ class _MovieInfoScreenState extends State<MovieInfoScreen> {
                 });
               },
               icon: !isFav
-                  ? const Icon(Icons.favorite_outline)
+                  ? const Icon(Icons.favorite_outline) // Add to favorites icon
                   : const Icon(
-                      Icons.favorite,
+                      Icons.favorite, // Remove from favorites icon
                       color: Colors.redAccent,
                     ),
             ),
@@ -81,6 +85,7 @@ class _MovieInfoScreenState extends State<MovieInfoScreen> {
         backgroundColor: bgColor,
         body: ListView(
           children: [
+            // Displaying movie banner with elevation effect if it's a favorite
             Card(
               color: Colors.transparent,
               margin: EdgeInsets.zero,
@@ -96,6 +101,7 @@ class _MovieInfoScreenState extends State<MovieInfoScreen> {
                 ),
               ),
             ),
+            // Displaying movie info row
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: Card(
@@ -112,6 +118,7 @@ class _MovieInfoScreenState extends State<MovieInfoScreen> {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
+                              // Displaying movie rating and release date
                               Container(
                                 padding: const EdgeInsets.symmetric(
                                     horizontal: 8, vertical: 4),
@@ -159,6 +166,7 @@ class _MovieInfoScreenState extends State<MovieInfoScreen> {
                         color: Colors.white70,
                       ),
                     ),
+                    // Displaying original language and average vote
                     Text(
                       movie['originalLanguage'],
                       style: const TextStyle(
@@ -184,6 +192,7 @@ class _MovieInfoScreenState extends State<MovieInfoScreen> {
                 ),
               ),
             ),
+            // Displaying movie overview
             Padding(
               padding:
                   const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10),
@@ -202,6 +211,7 @@ class _MovieInfoScreenState extends State<MovieInfoScreen> {
                 ),
               ),
             ),
+            // Displaying movie poster
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               child: ClipRRect(

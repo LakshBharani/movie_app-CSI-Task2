@@ -13,6 +13,7 @@ class SearchScreen extends StatefulWidget {
   State<SearchScreen> createState() => _SearchScreenState();
 }
 
+// Variable to store the searched movie name
 String movieNameSearched = "";
 
 class _SearchScreenState extends State<SearchScreen> {
@@ -22,15 +23,16 @@ class _SearchScreenState extends State<SearchScreen> {
   @override
   void initState() {
     super.initState();
-    fetchMovies();
+    fetchMovies(); // Fetch movies when the screen initializes
   }
 
+  // Function to fetch movies from the API
   Future<void> fetchMovies() async {
     try {
       final List<Movie> fetchedMovies = await MovieService.fetchMovies();
       setState(() {
         movies = fetchedMovies;
-        filteredMovies = movies;
+        filteredMovies = movies; // Initially set filteredMovies to all movies
       });
     } catch (e) {
       print('Error fetching movies: $e');
@@ -47,8 +49,9 @@ class _SearchScreenState extends State<SearchScreen> {
           child: TextFormField(
             onChanged: (value) => {
               setState(() {
-                movieNameSearched = value;
+                movieNameSearched = value; // Update search query
               }),
+              // Filter movies based on search query
               filteredMovies = movies
                   .where((movie) => movie.title
                       .toLowerCase()
@@ -75,12 +78,14 @@ class _SearchScreenState extends State<SearchScreen> {
       body: movies.isEmpty
           ? const Center(
               child: CircularProgressIndicator(
-              color: Colors.white,
-            ))
+                color: Colors.white,
+              ),
+            )
           : SafeArea(
               child: Column(
                 children: [
                   const SizedBox(height: 20),
+                  // Display "Popular Searches" if no search query
                   movieNameSearched == ""
                       ? const Text(
                           'Popular Searches',
@@ -101,8 +106,7 @@ class _SearchScreenState extends State<SearchScreen> {
                           crossAxisCount: 2,
                           crossAxisSpacing: 20,
                           mainAxisSpacing: 20,
-                          childAspectRatio: 0.7
-                          
+                          childAspectRatio: 0.7,
                         ),
                         itemCount: filteredMovies.length,
                         itemBuilder: (context, index) {
