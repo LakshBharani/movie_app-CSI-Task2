@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
           // Movie info screen route
           '/movie-info': (context) => const MovieInfoScreen(),
           // Search screen route
-          'search': (context) => const SearchScreen(),
+          '/search': (context) => const SearchScreen(),
         });
   }
 }

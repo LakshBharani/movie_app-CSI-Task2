@@ -24,7 +24,7 @@ class Header extends StatelessWidget {
           ? [
               IconButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, 'search');
+                  Navigator.pushNamed(context, '/search');
                 },
                 icon: const Icon(Icons.search, size: 24, color: Colors.white),
               )
