@@ -2,6 +2,9 @@
 
 Welcome to the Movie Catalog App! This app allows users to browse and search for movies, view detailed information about each movie, mark movies as favorites, and view their favorite movies separately.
 
+## Video Demo
+https://github.com/LakshBharani/movie_app-CSI-Task2/assets/80910691/10b56ae3-9467-4a76-b398-a217fbb1b8e4
+
 ## Features
 
 ### Movie List Screen
@@ -20,34 +23,26 @@ Welcome to the Movie Catalog App! This app allows users to browse and search for
 
 - Displays a list of favorite movies.
 - Users can see the movies they marked as favorites on the Movie Detail Screen.
-- Favorite movies are saved locally and persist even when the app is closed.
+- Favorite movies are saved locally and persist even when the app is closed, used sqflite.
 
 ### API Integration
 
-- Utilizes a public movie API (e.g., The Movie Database API) to fetch movie data.
+- Utilizes a public movie API, The Movie Database API (TMDB) to fetch movie data.
 - Makes API calls to retrieve the list of popular movies and detailed information for each movie.
 - Handles API responses gracefully, including loading indicators and error messages.
 
 ### UI/UX Considerations
 
 - Implements a clean and intuitive user interface.
-- Focuses on user experience, including smooth transitions, animations, and loading indicators.
-
-## Getting Started
-
-1. Clone this repository to your local machine.
-2. Set up Flutter on your machine if you haven't already.
-3. Run `flutter pub get` to install dependencies.
-4. Replace API_KEY in the code with your API key from [The Movie Database API](https://www.themoviedb.org/documentation/api).
-5. Run the app on an emulator or a physical device using `flutter run`.
+- Autoscrolling carousel to showcase all the movies provided by the api.
+- Has clean shadows to indicate whether the movie is favorited, beautiful shadow effects in the home screen to make the carousel more visually appealing.
+- Implemetation of Heros to build smooth smooth transitions, animations, and loading indicators.
 
 ## Screenshots
-<img src="https://github.com/LakshBharani/movie_app-CSI-Task2/assets/80910691/99436c58-31b0-4a80-8152-c1cde5f6ceee" width="150">
-<img src="https://github.com/LakshBharani/movie_app-CSI-Task2/assets/80910691/c98e02e3-2819-453f-87c2-61cd7bba966e" width="150">
-<img src="https://github.com/LakshBharani/movie_app-CSI-Task2/assets/80910691/a5fe03d0-5db7-4b80-bdbb-565366bea84b" width="150">
-<img src="https://github.com/LakshBharani/movie_app-CSI-Task2/assets/80910691/4be97e6a-7dff-4427-98d9-e40b00adf0b2" width="150">
-<img src="https://github.com/LakshBharani/movie_app-CSI-Task2/assets/80910691/d991aa69-92ea-45e4-a767-b3b4f2ccbd69" width="150">
-<img src="https://github.com/LakshBharani/movie_app-CSI-Task2/assets/80910691/10dcb6a6-1d53-457a-b65b-63a72233be49" width="150">
 
-## Video Demo
-
+<img src="https://github.com/LakshBharani/movie_app-CSI-Task2/assets/80910691/a7223bfd-5f67-4ccd-bd21-4aa7ef8c910e" width="150">
+<img src="https://github.com/LakshBharani/movie_app-CSI-Task2/assets/80910691/58b7c162-a517-47d5-951d-7f8c1e925fb4" width="150">
+<img src="https://github.com/LakshBharani/movie_app-CSI-Task2/assets/80910691/20cf22cf-f9a7-437f-bafe-9ae175ddeb9c" width="150">
+<img src="https://github.com/LakshBharani/movie_app-CSI-Task2/assets/80910691/437741dc-2ee9-45f4-8f1f-de2e208bdbbc" width="150">
+<img src="https://github.com/LakshBharani/movie_app-CSI-Task2/assets/80910691/d4adfb64-3eb8-4752-a0bd-54b75f17b18c" width="150">
+<img src="https://github.com/LakshBharani/movie_app-CSI-Task2/assets/80910691/d4f1ffd3-0654-40cc-81f0-8f602527b091" width="150">
