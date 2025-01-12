@@ -3,7 +3,7 @@
 Welcome to the Movie Catalog App! This app allows users to browse and search for movies, view detailed information about each movie, mark movies as favorites, and view their favorite movies separately.
 
 ## Video Demo
-https://github.com/LakshBharani/movie_app-CSI-Task2/assets/80910691/10b56ae3-9467-4a76-b398-a217fbb1b8e4
+https://github.com/user-attachments/assets/7c3fe0eb-2eb4-4d58-94af-38b52cf2b445
 
 ## Features
 
